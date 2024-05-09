@@ -1,0 +1,114 @@
+/*     ----- RESET -----      */
+* {box-sizing: border-box; margin: 0; padding: 0;}
+body {background-color: #ffffff; font-family: michroma, sans-serif;}
+
+/* -------------------------
+    TESTATA CALCOLATRICE
+-------------------------- */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 990px; 
+    margin: 0 auto;
+    height: 700px;
+}
+
+.calcolator {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 320px;
+    border-radius: 20px;
+    background: linear-gradient(90deg, rgba(199,199,199,1) 0%, rgba(231,231,231,1) 100%, rgba(236,236,236,1) 100%);
+}
+
+.head-calcolator {
+    text-align: center;
+    font-size: 30px;
+    line-height: 3;
+}
+
+/* DISPLAY CALCOLATRICE */
+.display {
+    width: 320px;
+    background-color: black;
+    color: rgb(95, 212, 152);
+    font-family: 'seven segment', sans-serif;
+    font-size: 40px;
+    line-height: 2;
+    text-align: end;
+    padding: 0 15px;
+}
+
+/* CORPO CALCOLATRICE */
+.btn-calcolator {
+    padding: 30px 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    
+}
+
+/* COLONNA DI SINISTRA NUMERICA */
+.numbers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 220px;    
+}
+
+button {
+    font-size: 25px;
+    font-family: 'michroma';
+    padding: 6px 10px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px #999;
+    color: rgb(13, 13, 13);
+    background-color: rgb(186, 186, 186);
+    border: none;   
+}
+
+.number {
+    flex-grow: 1;
+    flex-basis: calc(100% / 3 - 10px);
+}
+
+.zero {
+    flex-grow: 2;
+    flex-basis: calc(100% / 3 * 2 - 10px);
+}
+
+.orange {
+    flex-grow: 1;
+    flex-basis: calc(100% / 3 - 10px);
+    background-color: rgb(245, 160, 64);
+    color: #ffffff;
+}
+
+/* COLONNA DI DESTRA OPERATORI */
+.operators {
+    width: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.operator {
+    flex-grow: 1;
+    flex-basis: calc((100% / 3) - 10px);
+    background-color: rgb(120, 169, 176);
+    color: #ffffff;
+}
+
+/* BONUS */
+button:hover {
+    cursor: pointer;
+}
+
+button:active {
+    box-shadow: 1px 1px 1px #777;
+}
