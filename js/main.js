@@ -46,8 +46,6 @@ function calcolatriceMain(){
     });
 }
 
-
-
 // INPORTO IL VALORE E SALVO SULL'ARREY:
 function numeroDigitato(input){
     const valoreCorrente = parseInt(input);;
@@ -56,34 +54,33 @@ function numeroDigitato(input){
     if (cifraCorrente[0] == 0 && cifraCorrente.length > 1) cifraCorrente.shift();
 
     console.log({cifraCorrente});
+    
+    // invoco la funzione schermo passando come argomento il valore corrente:
     schermo(valoreCorrente);  
 
 }
 
 
+/* ************************************
+      GESTIONE DELLA CALCOLATRICE
+************************************ */
 
-
-// IMPORTO IL VALORE
+// IMPORTO IL VALORE DELL'OPERATORE SALVO L'ARREY DI NUMERI SUL PRIMO OPERATORE E CANCELLO L'ARREY:
 function operatoreDigitato(input){
-    
+    // se l'evento ascoltato è un operatore svolgo delle azioni:
     if (input === '+' || input === '-' || input === '*' || input === '/' ) {
         primoOperatore = cifraCorrente.join('');
         cifraCorrente = [];
         operatoreMatematico = input;
-        console.log({operatoreMatematico});
+        
     }
-
 
 }
 
-
-
-
-
-// importo il valore dell'uguale dall'event listener:
+// IMPORTO IL VALORE DELL'UGUALE E SALVO I NUMERI DELL'ARREY NEL SECONDO OPERATORE, INVOCO LA FUNZIONE CALCOLO RISULTATO:
 function risultatoDigitato(input){
     
-    // salvo il l'arrey nella variabile secondo operatore:
+    // se l'input ascoltato è l'uguale svolgo delle azioni:
     if (input === '=') {
         secondoOperatore = cifraCorrente.join('');
         console.log(secondoOperatore);
@@ -95,7 +92,11 @@ function risultatoDigitato(input){
 }
 
 
-// funzione per calcolare il risultato:
+/* ************************************
+            CALCOLO RISULTATO
+************************************ */
+
+// FUNZIONE PER IL CALCOLO DEL RISULTATO:
 function calcolaRisultato(input){
     switch (true){
         case input === '=' && operatoreMatematico === '+':
@@ -122,12 +123,15 @@ function calcolaRisultato(input){
 }
 
 
-// creo funzione per il display:
+/* ************************************
+            DISPLAY & DELETE
+************************************ */
+
+// FUNZIONE PER GESTIRE IL DISPLAY DELLA CALCOLATRICE:
 function schermo(input){
     const cifraNumerica = cifraCorrente.join('');
 
-    // cancellaDigitato()
-    // console.log({input});
+    // in base a delle possibili situazioni mando a chermo valori diversi:
     if (input.length === 0){
         displayCalcolatrice.textContent = 0;
     } else if (cifraNumerica.length > 11) {
@@ -136,12 +140,11 @@ function schermo(input){
         // non fare niente...
     } else {
         displayCalcolatrice.textContent = cifraNumerica;
-        // console.log(cifraNumerica);
-        // console.log(cancellaDigitato);
     }
+
 }
 
-// importo il valore del cancella dall'event listener:
+// IMPORTO IL VALORE DEL CANC PER CANCELLARE IL DISPLAY:
 function cancellaDigitato(input){
     // console.log('sono un cancellatore ' + input);
     if (input === 'delete') {
@@ -150,11 +153,15 @@ function cancellaDigitato(input){
     }
 }
 
+/* ************************************
+            COALCOLATRICE
+************************************ */
+
+// INVOCO IL PROGRAMMA:
 calcolatriceMain();
 
-// FINE
-
-
-
+/* ***************
+       FINE
+**************** */
 
 
