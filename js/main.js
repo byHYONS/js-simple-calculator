@@ -38,11 +38,14 @@ function numeroDigitato(input){
     const valoreCorrente = parseInt(input);
     console.log(valoreCorrente);
 
-    if (!isNaN(input)) cifraCorrente.push(valoreCorrente);
-    console.log(cifraCorrente);
 
+    if (!isNaN(input)) cifraCorrente.push(valoreCorrente);
+    if (cifraCorrente[0] === 0 && cifraCorrente.length > 1) cifraCorrente = [];
+
+    console.log(cifraCorrente);
     schermo(valoreCorrente);
 
+    
 
 }
 
