@@ -38,9 +38,13 @@ function numeroDigitato(input){
     const valoreCorrente = parseInt(input);
     console.log(valoreCorrente);
 
+    const controlloZero = [];
+    if (!isNaN(valoreCorrente)) controlloZero.push(valoreCorrente);
+    console.log({controlloZero});
 
-    if (!isNaN(input)) cifraCorrente.push(valoreCorrente);
-    if (cifraCorrente[0] === 0 && cifraCorrente.length > 1) cifraCorrente = [];
+
+    // if (!isNaN(input)) cifraCorrente.push(valoreCorrente);
+    if (controlloZero[0] !== 0) cifraCorrente.push(controlloZero);
 
     console.log(cifraCorrente);
     schermo(valoreCorrente);
