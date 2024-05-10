@@ -25,3 +25,5 @@ Verificare che non si stia cercando di dividere per 0.
 
 
 ### Svolgimento:
+1. con l'event delegation leggo div padre e ho il risultato di tutti i bottoni, successivamente farò l'eventListener su di essi;
+2. 
