@@ -48,10 +48,10 @@ function calcolatriceMain(){
 
 // INPORTO IL VALORE E SALVO SULL'ARREY:
 function numeroDigitato(input){
-    const valoreCorrente = parseInt(input);;
+    const valoreCorrente = parseInt(input);
 
     if (!isNaN(input)) cifraCorrente.push(valoreCorrente);
-    if (cifraCorrente[0] == 0 && cifraCorrente.length > 1) cifraCorrente.shift();
+    if (cifraCorrente[0] === 0 && cifraCorrente.length > 1) cifraCorrente.shift();
 
     console.log({cifraCorrente});
     
