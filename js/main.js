@@ -11,6 +11,7 @@ let secondoOperatore;
 let cifraCorrente = [];
 let operatoreMatematico;
 let risultatoCalcolato;
+let risultatoTotale = 0;
 
 const displayCalcolatrice = document.querySelector('.display span');
 const bottoni = document.querySelector('.btn-calcolator');
@@ -40,8 +41,8 @@ function calcolatriceMain(){
         cancellaDigitato(cancella);
 
         console.log('sono la cifra ' + cifraCorrente);
-        console.log('ho salvato il ' + primoOperatore);
-        console.log('ho salvato il ' + secondoOperatore);   
+        console.log('primo operatore salvato ' + primoOperatore);
+        console.log('secondo operatore salvato ' + secondoOperatore);   
         
     });
 }
@@ -69,10 +70,9 @@ function numeroDigitato(input){
 function operatoreDigitato(input){
     // se l'evento ascoltato è un operatore svolgo delle azioni:
     if (input === '+' || input === '-' || input === '*' || input === '/' ) {
-        primoOperatore = cifraCorrente.join('');
+        primoOperatore = (risultatoTotale !== 0) ? risultatoTotale : cifraCorrente.join('');
         cifraCorrente = [];
         operatoreMatematico = input;
-        
     }
 
 }
@@ -84,7 +84,8 @@ function risultatoDigitato(input){
     if (input === '=') {
         secondoOperatore = cifraCorrente.join('');
         console.log(secondoOperatore);
-
+        cifraCorrente = [];
+        
     }
 
     // invoco la funzione per calcolare il risultato:
@@ -120,6 +121,7 @@ function calcolaRisultato(input){
             }
             break;
     }
+    risultatoTotale = parseInt(displayCalcolatrice.textContent)
 }
 
 
@@ -150,6 +152,10 @@ function cancellaDigitato(input){
     if (input === 'delete') {
         displayCalcolatrice.textContent = 0;
         cifraCorrente = [];
+        primoOperatore = 0;
+        secondoOperatore = 0;
+        risultatoTotale = 0;
+        operatoreMatematico = undefined;
     }
 }
 
@@ -163,5 +169,4 @@ calcolatriceMain();
 /* ***************
        FINE
 **************** */
-
 
